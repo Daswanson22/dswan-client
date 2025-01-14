@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import Loading from './Loading';
+
+const url = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API_URL : 'http://localhost:3001';
+
 function Contact() {
   const [error, setError] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -24,7 +27,7 @@ function Contact() {
     };
 
     try {
-      const response = await fetch('/api/send-email', {
+      const response = await fetch(`${url}/api/send-email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
