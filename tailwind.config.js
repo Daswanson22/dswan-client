@@ -11,6 +11,10 @@ module.exports = {
         'fun-teal': '#2dd4bf',
         'light-black': '#22222277',
         'light-blue': '#00BFFF',
+        'gray': {
+          'light': '#D3D3D3',
+          'dark': '#121212',
+        }
       },
       animation: {
         'fade-in': 'fadeIn 1s ease-in forwards',

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import Loading from './Loading';
 function Contact() {
   const [error, setError] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -8,9 +8,11 @@ function Contact() {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false); // State to handle success animation
+  const [loading, setLoading] = useState(false);
 
   const send = async (e) => {
     e.preventDefault();
+    setLoading(true);
     console.log('Sending email');
 
     const formData = {
@@ -42,43 +44,45 @@ function Contact() {
       setSubject('');
       setMessage('');
       setError('');
+      setLoading(false);
     } catch (error) {
       console.log(error.message);
       setError('Internal Server Error - Please try again later');
+      setLoading(false);
     }
   };
 
   return (
-    <div className="flex flex-col items-start justify-center gap-4">
-      <h2 className="text-4xl text-center bg-light-black w-full py-2 font-medium text-light-blue border-solid border-x-8 border-light-blue">
-        Contact
-      </h2>
+    <div className="space-y-4">
+      <h2 className="text-4xl text-start w-full border-b pb-2">CONTACT</h2>
       <form
-        className="bg-light-black w-full space-y-4 p-2 text-xl rounded-lg border-solid border text-light-blue font-semibold"
+        className=" w-full space-y-4 p-2 rounded-lg text-light-blue font-light"
         onSubmit={send}
       >
         <div className="flex flex-col md:flex-row gap-4">
           <section className="flex flex-col w-full">
-            <label htmlFor="firstName">First Name</label>
+            <label htmlFor="firstName" className='text-md'>First Name</label>
             <input
               type="text"
               maxLength={20}
-              className="bg-light-black text-white font-medium bg-opacity-80 border-solid border-b px-2"
+              className="bg-light-black text-white text-xl bg-light-gray border-solid border-b p-2 focus:outline-none"
               id="firstName"
               name="firstName"
+              placeholder='John'
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
               required
             />
           </section>
           <section className="flex flex-col w-full">
-            <label htmlFor="lastName">Last Name</label>
+            <label htmlFor="lastName" className='text-md'>Last Name</label>
             <input
               type="text"
               maxLength={20}
-              className="bg-light-black text-white font-medium bg-opacity-80 border-solid border-b px-2"
+              className="bg-light-black text-white text-xl bg-light-gray border-solid border-b p-2 focus:outline-none"
               id="lastName"
               name="lastName"
+              placeholder='Smith'
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
               required
@@ -86,24 +90,25 @@ function Contact() {
           </section>
         </div>
         <section className="flex flex-col">
-          <label htmlFor="email">Email Address</label>
+          <label htmlFor="email" className='text-md'>Email Address</label>
           <input
             type="email"
             maxLength={40}
-            className="bg-light-black text-white font-medium bg-opacity-80 border-solid border-b px-2"
+            className="bg-light-black text-white text-xl bg-light-gray border-solid border-b p-2 focus:outline-none"
             id="email"
             name="email"
+            placeholder='example@domain.com'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </section>
         <section className="flex flex-col">
-          <label htmlFor="subject">Subject</label>
+          <label htmlFor="subject" className='text-md'>Subject</label>
           <input
             type="text"
             maxLength={40}
-            className="bg-light-black text-white font-medium bg-opacity-80 border-solid border-b px-2"
+            className="bg-light-black text-white text-xl bg-light-gray border-solid border-b p-2 focus:outline-none"
             id="subject"
             name="subject"
             value={subject}
@@ -112,12 +117,12 @@ function Contact() {
           />
         </section>
         <section className="flex flex-col">
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message" className='text-md'>Message</label>
           <textarea
             type="text"
             maxLength={250}
             rows={10}
-            className="bg-light-black text-white font-medium bg-opacity-80 border-solid border-b px-2"
+            className="bg-light-black text-white text-xl bg-light-gray border-solid border-b p-2 focus:outline-none"
             id="message"
             name="message"
             value={message}
@@ -126,15 +131,21 @@ function Contact() {
           />
         </section>
         {error && <p className="bg-red-500 text-white p-4">{error}</p>}
-        {isSuccess && <p className="bg-green-500 text-white p-4 animate-bounce">Message Sent Successfully!</p>}
-        <section>
-          <button
-            type="submit"
-            className="bg-light-blue p-4 text-white border-solid border border-light-blue rounded-md hover:bg-transparent duration-200 ease-in-out"
-          >
-            Send Message
-          </button>
-        </section>
+        {loading ? (
+          <Loading />
+        ) : (
+          <section className='flex gap-8'>
+            <button
+              type="submit"
+              className="bg-transparent p-4 text-white border-solid border border-light-blue rounded-md hover:bg-light-blue duration-200 ease-in-out"
+            >
+              Send Message
+            </button>
+            {isSuccess && <p className="text-green-400 p-4">Message Sent Successfully!</p>}
+
+          </section>
+        )}
+        
       </form>
     </div>
   );

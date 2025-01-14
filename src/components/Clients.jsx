@@ -21,7 +21,7 @@ function Card({company, hyperlink, description, logo}) {
 function Clients() {
   return (
     <div className='flex flex-col items-start justify-center space-y-4'>
-      <h2 className="text-4xl text-center bg-light-black w-full py-2 font-medium text-fun-teal border-solid border-x-8 border-fun-teal">Clients</h2>
+        <h2 className="text-4xl font-semibold text-start w-full border-b pb-2">CLIENTS</h2>
         <p className='text-white'>
             With a strong foundation in web development, I offer a range of services designed to meet client website needs. My experience spans varies from basic brochures webpages to scalabale web applications.
         </p>
