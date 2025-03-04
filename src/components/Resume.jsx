@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 const Resume = () => {
   return (
     <div className="p-6">
+      <p className='text-center underline pb-8'>Last updated: August, 25th, 2024</p>
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold text-fun-teal">Dylan Swanson</h1>
         <p className="text-xl">Daswanson22@gmail.com | (805)-551-9345</p>

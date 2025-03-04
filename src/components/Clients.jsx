@@ -1,7 +1,9 @@
 import React from 'react'
 import TORQ from '../images/torq.png'
 import WWSA from '../images/wwsa.png'
+import NODEBOILER from '../images/nodeboilericon.png'
 import { Link } from 'react-router-dom'
+
 function Card({company, hyperlink, description, logo}) {
     return (
         <div className="flex flex-col gap-2 border border-white bg-light-black text-white rounded-lg p-4 w-full">
@@ -26,9 +28,10 @@ function Clients() {
             With a strong foundation in web development, I offer a range of services designed to meet client website needs. My experience spans varies from basic brochures webpages to scalabale web applications.
         </p>
 
-        <div className="flex flex-col xl:flex-row justify-between gap-4">
+        <div className="grid grid-cols-2 col-span-12 gap-4">
             <Card company="TORQ Sports" hyperlink="https://torqsports.com" description="A sports recruting platform that offers valuable Saas products that help high school athletes with getting recruited" logo={TORQ}/>
             <Card company="World Wide Strategic Alliances" hyperlink="https://wws-alliances.org" description="A company specializing in both domestic and international logistics, offering streamlined cargo solutions." logo={WWSA}/>
+            <Card company="Nodeboiler" hyperlink="https://nodeboiler.com" description="A boilerplate for Node.js applications that includes a variety of features and tools to help developers get started quickly." logo={NODEBOILER}/>
         </div>
         
     </div>

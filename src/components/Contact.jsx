@@ -59,7 +59,7 @@ function Contact() {
     <div className="space-y-4">
       <h2 className="text-4xl text-start w-full border-b pb-2">CONTACT</h2>
       <form
-        className=" w-full space-y-4 p-2 rounded-lg text-light-blue font-light"
+        className="bg-gray-800 bg-opacity-50 w-full space-y-4 p-2 rounded-lg text-light-blue font-light"
         onSubmit={send}
       >
         <div className="flex flex-col md:flex-row gap-4">
@@ -68,7 +68,7 @@ function Contact() {
             <input
               type="text"
               maxLength={20}
-              className="bg-light-black text-white text-xl bg-light-gray border-solid border-b p-2 focus:outline-none"
+              className="bg-transparent text-white text-xl bg-light-gray border-solid border-b p-2 focus:outline-none"
               id="firstName"
               name="firstName"
               placeholder='John'
@@ -82,7 +82,7 @@ function Contact() {
             <input
               type="text"
               maxLength={20}
-              className="bg-light-black text-white text-xl bg-light-gray border-solid border-b p-2 focus:outline-none"
+              className="bg-transparent text-white text-xl bg-light-gray border-solid border-b p-2 focus:outline-none"
               id="lastName"
               name="lastName"
               placeholder='Smith'
@@ -97,7 +97,7 @@ function Contact() {
           <input
             type="email"
             maxLength={40}
-            className="bg-light-black text-white text-xl bg-light-gray border-solid border-b p-2 focus:outline-none"
+            className="bg-transparent text-white text-xl bg-light-gray border-solid border-b p-2 focus:outline-none"
             id="email"
             name="email"
             placeholder='example@domain.com'
@@ -111,9 +111,10 @@ function Contact() {
           <input
             type="text"
             maxLength={40}
-            className="bg-light-black text-white text-xl bg-light-gray border-solid border-b p-2 focus:outline-none"
+            className="bg-transparent text-white text-xl bg-light-gray border-solid border-b p-2 focus:outline-none"
             id="subject"
             name="subject"
+            placeholder="Your subject here"
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
             required
@@ -125,9 +126,10 @@ function Contact() {
             type="text"
             maxLength={250}
             rows={10}
-            className="bg-light-black text-white text-xl bg-light-gray border-solid border-b p-2 focus:outline-none"
+            className=" text-white text-xl bg-black bg-opacity-50 p-2 focus:outline-none"
             id="message"
             name="message"
+            placeholder='Write me a message'
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             required
