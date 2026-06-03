@@ -29,7 +29,7 @@ function Home() {
             Welcome
           </h1>
           <p className="text-xl lg:text-2xl mt-6 max-w-2xl text-gray-200 leading-relaxed drop-shadow">
-            My name is Dylan Swanson.{' '}
+            Hey there, I'm Dylan.{' '}
             <span className="text-fun-teal">Software Engineer.</span>{' '}
             Marketing Guru. Golf Advocate. AI Enthusiast.
           </p>
@@ -44,7 +44,7 @@ function Home() {
           </div>
           <h2 className="text-5xl font-bold text-white tracking-tight">About</h2>
           <p className="text-gray-300 text-lg leading-loose tracking-wide">
-            I'm Dylan Swanson, a software engineer based in California with a passion for building
+            I'm Dylan, a software engineer based in California with a passion for building
             things that make a real impact — from full-stack web applications and cloud infrastructure
             to data automation pipelines and SaaS products. I graduated from California State
             University, Long Beach with a Bachelor's in Computer Science in December 2024, and have
