@@ -32,10 +32,12 @@ const AnimationProvider = ({children}) => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-          changeColor();
+          const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
+          sessionStorage.setItem('color', randomColor);
+          setColor(randomColor);
         }, 1000);
         return () => clearInterval(interval);
-      }, [color]);
+      }, []);
     const values ={
      color, 
      applySpinAnimation,
