@@ -1,93 +1,158 @@
-import { NavLink } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUser, faCode, faFileAlt, faGraduationCap, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { useAnimation } from '../contexts/AnimationProvider'
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+
+const navLinks = [
+  { label: 'Home',      href: '#hero',      section: 'hero' },
+  { label: 'About',     href: '#about',     section: 'about' },
+  { label: 'Skills',    href: '#skills',    section: 'skills' },
+  { label: 'Experience', href: '#resume',    section: 'resume' },
+  { label: 'Education', href: '#education', section: 'education' },
+  { label: 'Contact',   href: '#contact',   section: 'contact' },
+];
 
 function Navbar() {
-  const { color } = useAnimation();
+  const [scrolled, setScrolled]       = useState(false);
+  const [menuOpen, setMenuOpen]       = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+
+      // Determine which section is currently in view
+      const sectionIds = navLinks.map((l) => l.section);
+      let current = 'hero';
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 120) {
+          current = id;
+        }
+      }
+      setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const handleLinkClick = () => setMenuOpen(false);
+
   return (
-    <header style={{ borderColor: color }} className='bg-slate-900 bg-opacity-45 border-solid border-2 rounded-lg transition-colors duration-1000 h-fit w-full md:w-fit p-2'>
-      <nav className='flex md:flex-col'>
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            `w-full p-2 px-4  rounded-md text-center text-xl duration-300 ease-in ${isActive ? 'bg-teal-400 bg-opacity-80 text-white' : 'hover:bg-teal-400'}`
-          }
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? 'bg-black/80 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        }`}
+      >
+        <div className="flex items-center justify-between px-6 py-4 lg:px-[10%]">
+          <a href="#hero" className="text-4xl font-bold text-fun-teal">
+            DS
+          </a>
+
+          {/* Desktop nav */}
+          <nav className="hidden md:flex gap-8">
+            {navLinks.map(({ label, href, section }) => (
+              <a
+                key={section}
+                href={href}
+                className={`text-lg font-medium transition-colors duration-200 hover:text-fun-teal ${
+                  activeSection === section ? 'text-fun-teal' : 'text-light-white'
+                }`}
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Social icons */}
+          <div className="hidden md:flex items-center gap-4 text-light-white">
+            <a
+              href="https://github.com/Daswanson22"
+              target="_blank"
+              rel="noreferrer"
+              className="text-2xl transition-colors duration-200 hover:text-fun-teal"
+              aria-label="GitHub"
+            >
+              <FontAwesomeIcon icon={faGithub} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/dylan-swanson-018223211"
+              target="_blank"
+              rel="noreferrer"
+              className="text-2xl transition-colors duration-200 hover:text-fun-teal"
+              aria-label="LinkedIn"
+            >
+              <FontAwesomeIcon icon={faLinkedin} />
+            </a>
+          </div>
+
+          {/* Hamburger */}
+          <button
+            className="md:hidden text-white text-2xl p-2"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label="Toggle menu"
+          >
+            <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
+          </button>
+        </div>
+      </header>
+
+      {/* Mobile drawer */}
+      <div
+        className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${
+          menuOpen ? 'pointer-events-auto' : 'pointer-events-none'
+        }`}
+      >
+        <div
+          className={`absolute inset-0 bg-black/60 transition-opacity duration-300 ${
+            menuOpen ? 'opacity-100' : 'opacity-0'
+          }`}
+          onClick={() => setMenuOpen(false)}
+        />
+        <div
+          className={`absolute top-0 left-0 right-0 bg-black/95 backdrop-blur-md transition-transform duration-300 ${
+            menuOpen ? 'translate-y-0' : '-translate-y-full'
+          }`}
         >
-          <span className='block md:hidden'>
-            <FontAwesomeIcon icon={faHome} />
-          </span>
-          <span className='hidden md:block'>
-            Home
-          </span>
-        </NavLink>
-        <NavLink
-          to="/about"
-          className={({ isActive }) =>
-            `w-full p-2 px-4 rounded-md text-center text-xl duration-300 ease-in ${isActive ? 'bg-teal-400 text-white' : 'hover:bg-teal-400'}`
-          }
-        >
-          <span className='block md:hidden'>
-            <FontAwesomeIcon icon={faUser} />
-          </span>
-          <span className='hidden md:block'>
-            About
-          </span>
-        </NavLink>
-        <NavLink
-          to="/skills"
-          className={({ isActive }) =>
-            `w-full p-2 px-4 rounded-md text-center text-xl duration-300 ease-in ${isActive ? 'bg-teal-400 text-white' : 'hover:bg-teal-400'}`
-          }
-        >
-          <span className='block md:hidden'>
-            <FontAwesomeIcon icon={faCode} />
-          </span>
-          <span className='hidden md:block'>
-            Skills
-          </span>
-        </NavLink>
-        <NavLink
-          to="/resume"
-          className={({ isActive }) =>
-            `w-full p-2 px-4 rounded-md text-center text-xl duration-300 ease-in ${isActive ? 'bg-teal-400 text-white' : 'hover:bg-teal-400'}`
-          }
-        >
-          <span className='block md:hidden'>
-            <FontAwesomeIcon icon={faFileAlt} />
-          </span>
-          <span className='hidden md:block'>
-            Resume
-          </span>
-        </NavLink>
-        <NavLink
-          to="/education"
-          className={({ isActive }) =>
-            `w-full p-2 px-4 rounded-md text-center text-xl duration-300 ease-in ${isActive ? 'bg-teal-400 text-white' : 'hover:bg-teal-400'}`
-          }
-        >
-          <span className='block md:hidden'>
-            <FontAwesomeIcon icon={faGraduationCap} />
-          </span>
-          <span className='hidden md:block'>
-            Education
-          </span>
-        </NavLink>
-        <NavLink
-          to="/contact"
-          className={({ isActive }) =>
-            `w-full p-2 px-4 rounded-md text-center text-xl duration-300 ease-in ${isActive ? 'bg-teal-400 text-white' : 'hover:bg-teal-400'}`
-          }
-        >
-          <span className='block md:hidden'>
-            <FontAwesomeIcon icon={faEnvelope} />
-          </span>
-          <span className='hidden md:block'>
-            Contact
-          </span>
-        </NavLink>
-      </nav>
-    </header>
+          <div className="pt-20 pb-10 flex flex-col items-center gap-8">
+            {navLinks.map(({ label, href, section }) => (
+              <a
+                key={section}
+                href={href}
+                onClick={handleLinkClick}
+                className={`text-2xl font-semibold transition-colors duration-200 hover:text-fun-teal ${
+                  activeSection === section ? 'text-fun-teal' : 'text-white'
+                }`}
+              >
+                {label}
+              </a>
+            ))}
+            <div className="flex gap-6 pt-2 text-white">
+              <a
+                href="https://github.com/Daswanson22"
+                target="_blank"
+                rel="noreferrer"
+                className="text-3xl transition-colors duration-200 hover:text-fun-teal"
+                aria-label="GitHub"
+              >
+                <FontAwesomeIcon icon={faGithub} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/dylan-swanson-018223211"
+                target="_blank"
+                rel="noreferrer"
+                className="text-3xl transition-colors duration-200 hover:text-fun-teal"
+                aria-label="LinkedIn"
+              >
+                <FontAwesomeIcon icon={faLinkedin} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 

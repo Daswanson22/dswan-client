@@ -19,7 +19,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "parse-resume": "node scripts/parse-resume.js"
   },
   "eslintConfig": {
     "extends": [
@@ -41,6 +42,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
+    "pdf-parse": "^1.1.1",
     "postcss": "^8.4.40",
     "tailwindcss": "^3.4.7"
   },
