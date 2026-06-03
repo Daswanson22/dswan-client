@@ -1,0 +1,166 @@
+{
+  "generatedAt": "2026-06-03",
+  "contact": {
+    "name": "Dylan Swanson",
+    "email": "Daswanson22@gmail.com",
+    "phone": "+1 (805)-551-9345",
+    "linkedin": "https://www.linkedin.com/in/dylan-swanson-018223211",
+    "github": "https://github.com/Daswanson22",
+    "website": "https://www.dswan.xyz"
+  },
+  "summary": "Highly motivated software engineer strong technical expertise in full-stack development, cloud technologies, and project management. A quick learner and adaptable problem-solver, I excel in fast-paced environments, delivering impactful solutions like full-stack web applications and secure cloud infrastructure.",
+  "skills": {
+    "Cloud Services": [
+      "Amazon Web Services",
+      "Google Cloud (GCP)",
+      "Microsoft Azure"
+    ],
+    "Databases": [
+      "Snowflake",
+      "SQL Server",
+      "MongoDB",
+      "MySQL",
+      "PostgreSQL"
+    ],
+    "Frontend": [
+      "CSS",
+      "Figma",
+      "Tailwind CSS"
+    ],
+    "Networking": [
+      "DNS",
+      "Firewall",
+      "NGINX",
+      "Cloudflare",
+      "TCP/IP",
+      "OSI"
+    ],
+    "Operating Systems": [
+      "Debian",
+      "Mac OS",
+      "Ubuntu",
+      "Windows 10",
+      "Windows 11",
+      "Windows Server 2019"
+    ],
+    "Programming Languages": [
+      "C++",
+      "C#",
+      "HTML",
+      "Java",
+      "JavaScript",
+      "TypeScript",
+      "Python"
+    ],
+    "Libraries & Frameworks": [
+      "React",
+      "Next.js",
+      "Node.js",
+      "Express",
+      "Flask",
+      "Django",
+      "Selenium",
+      "SQLAlchemy",
+      "Pandas"
+    ],
+    "Software Architecture": [
+      "Client-Server",
+      "Microservices",
+      "Multi-Tier",
+      "MVC",
+      "RESTful API Design",
+      "Serverless"
+    ],
+    "Tools & Applications": [
+      "JIRA",
+      "Microsoft Office",
+      "PowerBI",
+      "SharePoint",
+      "Slack",
+      "Asana"
+    ]
+  },
+  "education": [
+    {
+      "school": "CALIFORNIA STATE UNIVERSITY, LONG BEACH",
+      "location": "Long Beach, CA",
+      "degree": "Bachelor of Science, Computer Science",
+      "graduated": "December 2024",
+      "coursework": [
+        "Algorithms",
+        "Artificial Intelligence",
+        "Computer Systems",
+        "Cybersecurity",
+        "Networks & Distributed Computing",
+        "Software Engineering",
+        "Statistics and Probability",
+        "Systems Programming",
+        "UI/UX Design",
+        "Web Development"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "GIANT PARTNERS",
+      "location": "Westlake Village, CA",
+      "dates": "June 2025 – Present",
+      "title": "Junior Data Engineer",
+      "description": "Data driven digital marketing agency.",
+      "bullets": [
+        "Develop and maintain automation pipelines to streamline repetitive tasks, improving efficiency by 50% for data processing and email deployments tasks.",
+        "Led a team of three data engineers to design and deliver an end-to-end Python automation that processed, validated, packaged, and shipped high-volume client orders, improving order fulfillment efficiency by 80% and eliminating a full week of recurring manual effort.",
+        "Manage cloud-based storage systems and GitHub repositories to ensure version control and secure data backups.",
+        "Built and maintained a Django-based internal web application to automate data processing, generate deployment-specific reporting files, update email deployment calendars, and support operational automation workflows."
+      ]
+    },
+    {
+      "company": "SWANTECH",
+      "location": "Remote",
+      "dates": "August 2024 – Present",
+      "title": "Founder & Software Engineer (Consulting)",
+      "description": "Software development, web platforms, iOS applications, and data privacy systems.",
+      "bullets": [
+        "Designed and deployed custom automation, data-processing, and web solutions for small businesses, focusing on workflow efficiency, reliability, and scalability.",
+        "Built production Python and Django-based systems integrating third-party APIs, databases, and cloud infrastructure to replace manual and repetitive business processes.",
+        "Managed full project lifecycle including requirements gathering, technical design, deployment, and client delivery.",
+        "Implemented analytics, SEO, and Google Workspace–based email systems to support discoverability, operational efficiency, and reliable business communications."
+      ]
+    },
+    {
+      "company": "AEG WORLDWIDE, GLOBAL TECHNOLOGY",
+      "location": "Los Angeles, CA",
+      "dates": "September 2024 – December 2024",
+      "title": "IT Project Management Intern",
+      "description": "AEG is the world's leading sports and live entertainment company.",
+      "bullets": [
+        "Designed and developed web pages on company intranet highlighting the Global Technology organization.",
+        "Met with the CIO and ten senior leaders in Global Technology to gather content for their page design.",
+        "Utilized Figma and Microsoft Office tools to design user interface.",
+        "Developed project management artifacts including communications plan, project charter, and schedule."
+      ]
+    },
+    {
+      "company": "TORQ SPORTS",
+      "location": "Los Angeles, CA",
+      "dates": "April 2024 – August 2024",
+      "title": "Full Stack Engineer Intern",
+      "description": "Sports recruiting service connecting talented athletes with opportunities, fostering growth for players and coaches.",
+      "bullets": [
+        "Built web scraper to gather NCAA coach data and built a SaaS tool connecting athletes to NCAA coaches.",
+        "Designed AWS infrastructure with EC2, CloudFront, and S3 for scalable, efficient deployment.",
+        "Created an intuitive, user-friendly interface using React and Tailwind CSS.",
+        "Developed a Node.js REST API for CRUD operations, authentication, and user management."
+      ]
+    }
+  ],
+  "portfolio": [
+    "https://www.dswan.xyz",
+    "https://www.swantech.org/",
+    "https://torqsports.com/",
+    "https://www.wws-alliances.org/",
+    "https://www.mlbweeklyai.com/",
+    "https://hkrzgolf.com/",
+    "https://www.nodeboiler.com/"
+  ]
+}
